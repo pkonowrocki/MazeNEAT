@@ -1,0 +1,35 @@
+﻿<Window x:Class="MazeNEAT.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MazeNEAT" Height="383.557" Width="300" WindowStartupLocation="CenterScreen" SizeToContent="Height" Closing="Window_Closing">
+    <Grid>
+        
+        <StackPanel >
+
+            <GroupBox x:Name="maze_groupbox" Header="Maze size: 5 [cells]" Margin="0,5" >
+                <Slider x:Name="maze_size" Maximum="40" Minimum="3" Value="5" ValueChanged="maze_size_ValueChanged" />
+            </GroupBox>
+            <GroupBox x:Name="cell_groupbox" Header="Cell size: 40 [px]" Margin="0,5" >
+                <Slider x:Name="cell_size" Minimum="5" Maximum="100" TickFrequency="5" Value="40" ValueChanged="cell_size_ValueChanged" />
+            </GroupBox>
+            <GroupBox x:Name="tick_groupbox" Header="Time: 40 [ms]" Margin="0,5" >
+                <Slider x:Name="tick_size" Minimum="1" Maximum="1000" TickFrequency="1" Value="40" ValueChanged="tick_size_ValueChanged" />
+            </GroupBox>
+            <Button x:Name="StartBtn" Content="Start" HorizontalAlignment="Center" Width="75" Click="StartBtn_Click" Margin="0,5"/>
+            <Button x:Name="OpenMapBtn" Content="Open" HorizontalAlignment="Center"  Width="75" Click="OpenMapBtn_Click" Margin="0,5"/>
+            <Button x:Name="NewMapBtn" Content="New Map" HorizontalAlignment="Center"  Width="75" Click="NewMapBtn_Click" Margin="0,5"/>
+            <GroupBox Header="Results" Margin="0,5">
+                <TextBlock x:Name="ResultsText" Margin="0,5" TextWrapping="Wrap" VerticalAlignment="Top">
+                    <TextBlock.Text>
+                        <Binding Path="mazeWindow.result" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+                    </TextBlock.Text>
+                </TextBlock>
+
+            </GroupBox>
+        </StackPanel>
+
+    </Grid>
+</Window>
